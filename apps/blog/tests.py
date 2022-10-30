@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
-from django.test import Client, TestCase
+from django.test import TestCase
 from django.urls import reverse
+
 from .models import Post
+
 
 class BlogTests(TestCase):
     def setUp(self):
@@ -15,6 +17,7 @@ class BlogTests(TestCase):
             body='Nice body content',
             author=self.user,
             )
+
     def test_string_representation(self):
         post = Post(title='A sample title')
         self.assertEqual(str(post), post.title)
